@@ -2,8 +2,8 @@
 
 * Git is written in layers
     * GUI (for instance, looking at a diff in IntelliJ) is the outermost layer, closest to the user, supposedly more friendly than the command-line
-    * 'Porcelain' (`git diff`) is the command-line stuff meant for humans
-    * 'Plumbing' (`git diff-files`, `git diff-tree`, `git diff-index`, etc.) is all the machinery used to build Git from pieces, typically not for the end-user
+    * 'Porcelain' (e.g., `git diff`) is the command-line stuff meant for humans
+    * 'Plumbing' (e.g., `git diff-files`, `git diff-tree`, `git diff-index`, et al) is all the machinery used to build Git from pieces, typically not for the end-user
 * Where does Git store all its magic?
     * What's in a brand-new `.git` directory?
 * Storage in the object database
@@ -24,4 +24,4 @@
     * `git fsck --lost-found` to rescue lost files/commits
 * so, do i have like a zillion loose objects then?
     * what is a pack-file?
-    * `git gc` to clean up loose objects (as a porcelain user, you _never_ need to call this by hand)
+    * `git gc` to clean up loose objects (as a porcelain user, you **never** need to call this by hand)
