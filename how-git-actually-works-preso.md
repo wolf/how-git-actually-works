@@ -5,7 +5,7 @@
     * 'Porcelain' (e.g., `git diff`) is the command-line stuff meant for humans
     * 'Plumbing' (e.g., `git diff-files`, `git diff-tree`, `git diff-index`, et al) is all the machinery used to build Git from pieces, typically not for the end-user
 * Where does Git store all its magic?
-    * What's in a brand-new `.git` directory?
+    * Let’s look at an existing `.git` directory
 * Storage in the object database
     * How a file is stored ('blob')
         * Since addressed by hash, objects are unique: the same file can't be stored twice
