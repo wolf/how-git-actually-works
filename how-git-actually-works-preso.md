@@ -44,3 +44,12 @@
 * so, do i have like a zillion loose objects then?
     * what is a pack-file?
     * `git gc` to clean up loose objects (as a porcelain user, you **never** need to call this by hand)
+* What are "refs"?
+    * a ref is just an object-id, typically of a commit
+    * now what about that HEAD file in .git
+        * almost always the name of the branch you currently have checked out
+        * is a commit-id, instead, when you have a detached head
+    * what lives in .git/refs
+        * every local branch (in heads)
+        * every remote branch (in remotes)
+        * every tag (in tags)
