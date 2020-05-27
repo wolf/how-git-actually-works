@@ -112,11 +112,19 @@
 * `git ls-files --stage` (look familiar?  compare to a tree.)
     * It's _all_ blobs, with full paths (Note: this is why Git can't store empty directories) (Note the paths are in alphabetical order)
 * The index is a commit ready to be "stamped", all it needs are its trees to be created and a commit object
+* Summary
+    * The index (or staging area) is another kind of database, listing all the full paths files currently in the entire project
+    * It is a commit ready to be stamped into existence
+    * It starts filled in with the current state of a commit.  `git add` fills in different object-ids
 
 
 ## rescuing changes/commits
 
 * `git fsck --lost-found` to rescue lost files/commits
+* `git reflog` will also find lost commits, but that's outside the scope of this talk
+* Summary
+    * You can check your repo for consistency and find dangling objects
+    * One way is with `git fsck`; another way to find lost commits is with `git reflog`
 
 
 ## What are "refs"?
@@ -129,6 +137,11 @@
     * Every local branch (in heads) --- because the tip of a branch is simply a ref
     * Every remote branch (in remotes)
     * Every tag (in tags)
+* Summary
+    * A "ref" is just an object-id, usually to a commit somewhere
+    * Git manages branches and checkouts by keeping track of refs
+    * A branch is just a file named for the branch, containing a ref to the current tip
+    * HEAD is just a file containing the name of the current branch
 
 
 ## So, do i have like a zillion loose objects then?  Git sounds pretty inefficient
@@ -138,3 +151,7 @@
 * `git count-objects -v` --- note the in-pack objects count
 * What is a pack-file?
 * `git gc` to clean up loose objects (as a porcelain user, you **never** need to call this by hand)
+* Summary
+    * Git does not store a million loose objects
+    * Instead, they're bundled into efficient "packs" and deltified for even better space savings
+    * These packs are built by the garbage collector which also eventually discards old unreferenced objects
